@@ -1,0 +1,14 @@
+$('#index-login-form').on('submit', function() {
+	var that = $(this),
+		contents = that.serialize();
+		alert(contents);
+
+	$.ajax({
+		url: 'http://localhost/task-manager-api/authenticate'
+		dataType: 'json',
+		type: 'post',
+		data: contents
+	});
+
+	return false;
+});
