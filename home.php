@@ -35,6 +35,7 @@
                 </div>
             </div>
 	   <div class="row">
+		<a href="home.php">Back</a>
 		<center>
                 <table id="api-data" border='1' style="background: #FFFFFF; ">
 			

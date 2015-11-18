@@ -49,7 +49,7 @@ $('#update').on('submit', function() {
 	return false;
 });
 
-if($('#delete')){
+if($('#delete').length){
 	$(window).load(function() {
 		apiFunctionURL = $('#delete').find('input[name="apiFunction"]').val(),
 		$.ajax({
@@ -60,7 +60,13 @@ if($('#delete')){
 				$.each(data, function() {
 					$.each(this, function() {
 							var json = this;
-							var outputHTML = '<option value="' + json.id + '">' + json.name + '</option>';
+							var display;
+							if(apiFunctionURL == 'tasks') {
+								display = json.description;
+							} else {
+								display = json.name;
+							}
+							var outputHTML = '<option value="' + json.id + '">' + display + '</option>';
 							$('#delete-selector').append(outputHTML);
 					});
 				});

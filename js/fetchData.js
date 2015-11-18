@@ -35,8 +35,14 @@ function loadNewData(id, tableName) {
 			$.each(data, function() {
 				$.each(this[apiFunctionURL[arrayPosition]], function() {
 					var json = this;
+					var display;
+					if(arrayPosition >= 3) {
+						display = json.description;
+					} else {
+						display = json.name;
+					}
 					var outputHTML = '<tr><td> <a onclick="loadNewData('+ json.id + 
-					')" style="cursor: pointer;">'  + json.name + '</a></td></tr>';
+					')" style="cursor: pointer;">'  + display + '</a></td></tr>';
 					$('#api-data').append(outputHTML);
 				});
 			});
